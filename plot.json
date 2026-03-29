@@ -1,68 +1,122 @@
 {
  "geoms": {
- "geom1_point_plot1": {
+ "geom1_point_grid": {
  "geom": "point",
-"classed": "geom1_point_plot1",
+"classed": "geom1_point_grid",
 "aes": {
  "x": "x",
 "y": "y",
-"colour": "particle",
-"clickSelects": "particle",
-"showSelected1": "step",
-"showSelected2": "particle" 
+"colour": "sampled",
+"size": "sampled",
+"key": "id",
+"showSelected1": "iteration",
+"showSelected2": "sampled" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
-"size":        4,
-"showSelected": [ "step", "particle" ],
-"clickSelects": "particle",
-"help_showSelected": [ "step", "particle" ],
-"help_clickSelects": "particle" 
+"showSelected": [ "iteration", "sampled" ],
+"help_showSelected": [ "iteration", "sampled" ] 
 },
 "types": {
  "colour": "rgb",
+"size": "numeric",
 "x": "numeric",
 "y": "numeric",
-"clickSelects": "factor",
+"key": "integer",
 "showSelected1": "integer",
-"showSelected2": "factor",
+"showSelected2": "character",
 "PANEL": "integer",
 "group": "character",
 "fill": "rgb" 
 },
-"chunk_order": [],
+"chunk_order": [
+ "iteration" 
+],
 "nest_order": [
- "showSelected1",
-"showSelected2" 
+ "showSelected2" 
 ],
 "subset_order": [
- "showSelected1",
-"showSelected2" 
+ "showSelected2" 
 ],
-"chunks": 1,
-"total": 1 
+"columns": {
+ "common": [
+ "group",
+"key",
+"x",
+"y" 
+] 
 },
-"geom2_line_plot2": {
+"chunks": {
+ "1": 1,
+"2": 2,
+"3": 3,
+"4": 4,
+"5": 5,
+"6": 6,
+"7": 7,
+"8": 8,
+"9": 9,
+"10": 10,
+"11": 11,
+"12": 12,
+"13": 13,
+"14": 14,
+"15": 15,
+"16": 16,
+"17": 17,
+"18": 18,
+"19": 19,
+"20": 20 
+},
+"total": 20 
+},
+"geom2_line_means": {
  "geom": "line",
-"classed": "geom2_line_plot2",
+"classed": "geom2_line_means",
 "aes": {
- "x": "step",
-"y": "distance",
-"colour": "particle",
-"showSelected1": "particle" 
+ "x": "iteration",
+"y": "mean_x" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
-"showSelected": "particle",
-"help_showSelected": "particle" 
+"colour": "#FF0000" 
 },
 "types": {
- "colour": "rgb",
-"x": "numeric",
+ "x": "numeric",
 "y": "numeric",
-"showSelected1": "factor",
+"PANEL": "integer",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [],
+"subset_order": [],
+"chunks": 1,
+"total": 1 
+},
+"geom3_point_means": {
+ "geom": "point",
+"classed": "geom3_point_means",
+"aes": {
+ "x": "iteration",
+"y": "mean_x",
+"key": "iteration",
+"showSelected1": "iteration" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"colour": "#FF0000",
+"size":        5,
+"showSelected": "iteration",
+"help_showSelected": "iteration" 
+},
+"types": {
+ "x": "numeric",
+"y": "numeric",
+"key": "integer",
+"showSelected1": "integer",
 "PANEL": "integer",
 "group": "character" 
 },
@@ -76,25 +130,20 @@
 "chunks": 1,
 "total": 1 
 },
-"geom3_tallrect_plot2": {
- "geom": "tallrect",
-"classed": "geom3_tallrect_plot2",
+"geom4_hline_means": {
+ "geom": "hline",
+"classed": "geom4_hline_means",
 "aes": {
- "xmin": "step - 0.5",
-"xmax": "step + 0.5",
-"clickSelects": "step" 
+ "yintercept": "y" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
-"alpha":      0.3,
-"clickSelects": "step",
-"help_clickSelects": "step" 
+"linetype": "dashed",
+"colour": "#4682B4" 
 },
 "types": {
- "xmin": "numeric",
-"xmax": "numeric",
-"clickSelects": "integer",
+ "yintercept": "numeric",
 "PANEL": "integer",
 "group": "character" 
 },
@@ -106,121 +155,63 @@
 } 
 },
 "time": {
- "variable": "step",
-"ms":      200,
-"sequence": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50" ] 
+ "variable": "iteration",
+"ms":      800,
+"sequence": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" ] 
 },
 "selectors": {
- "particle": {
+ "sampled": {
  "type": "multiple",
 "legend": true,
 "is.variable.value": false,
-"clickSelects": true,
 "showSelected": true,
-"selected": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ],
-"levels": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ],
+"selected": [ "Population", "Sampled" ],
+"levels": [ "Population", "Sampled" ],
 "update": [
- "geom1_point_plot1",
-"geom2_line_plot2" 
+ "geom1_point_grid" 
 ] 
 },
-"step": {
+"iteration": {
  "is.variable.value": false,
 "type": "single",
 "showSelected": true,
-"clickSelects": true,
+"chunks": "iteration",
 "selected": "1",
-"levels": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50" ],
+"levels": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" ],
 "update": [
- "geom1_point_plot1",
-"geom3_tallrect_plot2" 
+ "geom1_point_grid",
+"geom3_point_means" 
 ] 
 } 
 },
 "plots": {
- "plot1": {
+ "grid": {
  "panel_margin_lines":     0.25,
 "legend": {
- "particle": {
+ "sampled": {
  "guide": "legend",
 "geoms": "point",
-"title": "particle",
-"class": "particle",
-"selector": "particle",
+"title": "sampled",
+"class": "sampled",
+"selector": "sampled",
 "is_discrete": true,
-"legend_type": "colour",
+"legend_type": [ "colour", "size" ],
 "text_size": "8.8pt",
 "title_size": "11pt",
 "entries": [
  {
- "pointcolour": "#FF62BC",
+ "pointcolour": "#4682B4",
+"pointsize":        3,
 "pointshape":       19,
-"pointsize":        4,
 "pointstroke":      0.5,
-"label": "10" 
+"label": "Population" 
 },
 {
- "pointcolour": "#E76BF3",
+ "pointcolour": "#FF0000",
+"pointsize":        6,
 "pointshape":       19,
-"pointsize":        4,
 "pointstroke":      0.5,
-"label": "9" 
-},
-{
- "pointcolour": "#9590FF",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "8" 
-},
-{
- "pointcolour": "#00B0F6",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "7" 
-},
-{
- "pointcolour": "#00BFC4",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "6" 
-},
-{
- "pointcolour": "#00BF7D",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "5" 
-},
-{
- "pointcolour": "#39B600",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "4" 
-},
-{
- "pointcolour": "#A3A500",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "3" 
-},
-{
- "pointcolour": "#D89000",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "2" 
-},
-{
- "pointcolour": "#F8766D",
-"pointshape":       19,
-"pointsize":        4,
-"pointstroke":      0.5,
-"label": "1" 
+"label": "Sampled" 
 } 
 ] 
 } 
@@ -264,19 +255,18 @@
 "loc": {
  "x": [
  [
-      -10,
-      -5,
-       0,
+      2.5,
        5,
+     7.5,
       10 
 ] 
 ],
 "y": [
  [
-      -10,
-      -5,
-       0,
-       5 
+      2.5,
+       5,
+     7.5,
+      10 
 ] 
 ] 
 } 
@@ -289,96 +279,89 @@
 "loc": {
  "x": [
  [
-    -12.5,
-     -10,
-    -7.5,
-      -5,
-    -2.5,
-       0,
+     1.25,
      2.5,
+    3.75,
        5,
+    6.25,
      7.5,
-      10,
-    12.5 
+    8.75,
+      10 
 ] 
 ],
 "y": [
  [
-    -12.5,
-     -10,
-    -7.5,
-      -5,
-    -2.5,
-       0,
+     1.25,
      2.5,
+    3.75,
        5,
-     7.5 
+    6.25,
+     7.5,
+    8.75,
+      10 
 ] 
 ] 
 } 
 },
 "axis1": {
  "x": [
-      -10,
-      -5,
-       0,
+      2.5,
        5,
+     7.5,
       10 
 ],
 "xlab": [
- "-10",
-"-5",
-"0",
-"5",
-"10" 
+ "2.5",
+"5.0",
+"7.5",
+"10.0" 
 ],
-"xrange": [ -14.53125, 12.50488 ],
+"xrange": [     0.55,    10.45 ],
 "xline": true,
 "xticks": true,
 "y": [
-      -10,
-      -5,
-       0,
-       5 
+      2.5,
+       5,
+     7.5,
+      10 
 ],
 "ylab": [
- "-10",
-"-5",
-"0",
-"5" 
+ "2.5",
+"5.0",
+"7.5",
+"10.0" 
 ],
-"yrange": [ -13.44734, 7.822075 ],
+"yrange": [     0.55,    10.45 ],
 "yline": true,
 "yticks": true 
 },
-"xtitle": "x",
+"xtitle": "Column",
 "strip_text_xsize": "11pt",
 "xsize": "11pt",
 "xangle":        0,
 "xanchor": "middle",
-"ytitle": "y",
+"ytitle": "Row",
 "strip_text_ysize": "11pt",
 "ysize": "11pt",
 "yangle":        0,
 "yanchor": "end",
 "xlabs": [
- "-10",
-"-5",
-"0",
-"5",
-"10" 
+ "2.5",
+"5.0",
+"7.5",
+"10.0" 
 ],
 "ylabs": [
- "-10",
-"-5",
-"0",
-"5" 
+ "2.5",
+"5.0",
+"7.5",
+"10.0" 
 ],
-"title": "Brownian Motion - Click a particle to track it",
+"title": "Simple Random Sampling — Population Grid",
 "title_size": "13.2pt",
 "options": {
- "width":      400,
-"height":      400 
+ "width":      500,
+"height":      500 
 },
 "span": {
  "rowspan": null,
@@ -386,86 +369,12 @@
 "last_in_row": null 
 },
 "geoms": [
- "geom1_point_plot1" 
+ "geom1_point_grid" 
 ] 
 },
-"plot2": {
+"means": {
  "panel_margin_lines":     0.25,
-"legend": {
- "particle": {
- "guide": "legend",
-"geoms": "path",
-"title": "particle",
-"class": "particle",
-"selector": "particle",
-"is_discrete": true,
-"legend_type": "colour",
-"text_size": "8.8pt",
-"title_size": "11pt",
-"entries": [
- {
- "pathcolour": "#FF62BC",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "10" 
-},
-{
- "pathcolour": "#E76BF3",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "9" 
-},
-{
- "pathcolour": "#9590FF",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "8" 
-},
-{
- "pathcolour": "#00B0F6",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "7" 
-},
-{
- "pathcolour": "#00BFC4",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "6" 
-},
-{
- "pathcolour": "#00BF7D",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "5" 
-},
-{
- "pathcolour": "#39B600",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "4" 
-},
-{
- "pathcolour": "#A3A500",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "3" 
-},
-{
- "pathcolour": "#D89000",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "2" 
-},
-{
- "pathcolour": "#F8766D",
-"pathsize":      0.5,
-"pathlinetype":        1,
-"label": "1" 
-} 
-] 
-} 
-},
+"legend": {},
 "strips": {
  "top": [
  "" 
@@ -505,20 +414,17 @@
 "loc": {
  "x": [
  [
-        0,
+        5,
       10,
-      20,
-      30,
-      40,
-      50 
+      15,
+      20 
 ] 
 ],
 "y": [
  [
-        0,
+        4,
        5,
-      10,
-      15 
+       6 
 ] 
 ] 
 } 
@@ -531,97 +437,84 @@
 "loc": {
  "x": [
  [
-        0,
-       5,
-      10,
-      15,
-      20,
-      25,
-      30,
-      35,
-      40,
-      45,
-      50 
-] 
-],
-"y": [
- [
-        0,
-     2.5,
+      2.5,
        5,
      7.5,
       10,
     12.5,
-      15 
+      15,
+    17.5,
+      20 
+] 
+],
+"y": [
+ [
+        4,
+     4.5,
+       5,
+     5.5,
+       6,
+     6.5 
 ] 
 ] 
 } 
 },
 "axis1": {
  "x": [
-        0,
+        5,
       10,
-      20,
-      30,
-      40,
-      50 
+      15,
+      20 
 ],
 "xlab": [
- "0",
+ "5",
 "10",
-"20",
-"30",
-"40",
-"50" 
+"15",
+"20" 
 ],
-"xrange": [       -2,       53 ],
+"xrange": [     0.05,    20.95 ],
 "xline": true,
 "xticks": true,
 "y": [
-        0,
+        4,
        5,
-      10,
-      15 
+       6 
 ],
 "ylab": [
- "0",
+ "4",
 "5",
-"10",
-"15" 
+"6" 
 ],
-"yrange": [ -0.740716, 15.55504 ],
+"yrange": [ 3.583333, 6.883333 ],
 "yline": true,
 "yticks": true 
 },
-"xtitle": "step",
+"xtitle": "Iteration",
 "strip_text_xsize": "11pt",
 "xsize": "11pt",
 "xangle":        0,
 "xanchor": "middle",
-"ytitle": "distance",
+"ytitle": "Mean X",
 "strip_text_ysize": "11pt",
 "ysize": "11pt",
 "yangle":        0,
 "yanchor": "end",
 "xlabs": [
- "0",
+ "5",
 "10",
-"20",
-"30",
-"40",
-"50" 
+"15",
+"20" 
 ],
 "ylabs": [
- "0",
+ "4",
 "5",
-"10",
-"15" 
+"6" 
 ],
-"title": "Distance from origin over time",
+"title": "Sample Mean (x) vs True Mean (dashed)",
 "title_size": "13.2pt",
 "options": {
- "width":      400,
-"height":      400 
+ "width":      500,
+"height":      300 
 },
 "span": {
  "rowspan": null,
@@ -629,11 +522,12 @@
 "last_in_row": null 
 },
 "geoms": [
- "geom2_line_plot2",
-"geom3_tallrect_plot2" 
+ "geom2_line_means",
+"geom3_point_means",
+"geom4_hline_means" 
 ] 
 } 
 },
-"source": "https://github.com/hargun144/animint2-test",
-"title": "Brownian Motion" 
+"source": "https://github.com/hargun144/animint2-medium",
+"title": "Simple Random Sampling Animation" 
 }
